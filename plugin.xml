@@ -36,6 +36,9 @@
     <js-module src="www/accelerometer.js" name="accelerometer">
         <clobbers target="navigator.accelerometer" />
     </js-module>
+
+    <js-module src="test/tests.js" name="tests">
+    </js-module>
     
     <!-- firefoxos -->
     <platform name="firefoxos">
