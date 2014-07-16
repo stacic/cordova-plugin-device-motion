@@ -1,5 +1,4 @@
 /*
-*
 * Licensed to the Apache Software Foundation (ASF) under one
 * or more contributor license agreements.  See the NOTICE file
 * distributed with this work for additional information
@@ -179,7 +178,7 @@ exports.defineAutoTests = function () {
 
 exports.defineManualTests = function (contentEl, createActionButton) {
     var logMessage = function (message, color) {
-        var log = document.getElementById('info');
+        var log = document.getElementById('accel_log');
         var logLine = document.createElement('div');
         if (color) {
             logLine.style.color = color;
@@ -189,7 +188,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
     }
 
     var clearLog = function () {
-        var log = document.getElementById('info');
+        var log = document.getElementById('accel_log');
         log.innerHTML = "";
     }
 
@@ -234,6 +233,7 @@ exports.defineManualTests = function (contentEl, createActionButton) {
      * Stop watching the acceleration
      */
     var stopAccel = function () {
+        clearLog();
         logMessage("stopAccel()", "green");
         setAccelStatus("Stopped");
         if (watchAccelId) {
@@ -280,10 +280,10 @@ exports.defineManualTests = function (contentEl, createActionButton) {
 
     /******************************************************************************/
 
-    contentEl.innerHTML = '<h1>Acceleration</h1>' +
-        '<div id="accel_status">Stopped</div>' +
-        '<div id="info"></div>' +
-        '<div><table width="100%">' +
+    contentEl.innerHTML = '<div id="info">' +
+        'Status: <span id="accel_status">Stopped</span>' +
+        '<div id="accel_log"></div>' +
+        '<table width="100%">' +
         '<tr><td width="20%">X:</td><td id="x"> </td></tr>' +
         '<tr><td width="20%">Y:</td><td id="y"> </td></tr>' +
         '<tr><td width="20%">Z:</td><td id="z"> </td></tr>' +
